@@ -1,9 +1,93 @@
 Go 
  Wprowadzenie do Go i praktyczny przegląd języka 
 
+Piotr Przybylak
+Senior Software Developer, RnDity
+piotr.przybylak@rndity.com
+@PiotrPrzybylak
 
 * Agenda
-- 1
+- 1 
 - 2
 - 3
 
+
+* Skąd wzięło się Go
+
+Język Go powstał w 2009 w Google.
+Jego autorami byli:
+
+- Robert Griesemer
+- Rob Pike
+- Ken Thompson
+
+Wersja 1.0 została wydana w 2012 roku
+
+* Dlaczego powstało Go
+
+Autorzy twierdzą, że wymyślili język Go czekając aż skompiluje się kod serwera nad którym pracowali ;)
+
+Google posiada:
+
+- Olbrzymią ilość kodu w Javie i C++
+- Rozwijanego przez olbrzymią ilość programistów
+- Uruchamianego na olbrzymiej ilości serwerów
+
+* Problemy Google
+
+Istniejące narzędzia nie były budowane z myślą o rozproszonych systemach wielkiej skali
+
+- Za wolno działają
+- Za wolno sie kompilują
+- Są za trudne i zbyt skomplikowane
+
+* Założenia projektu Go
+
+- Wydajne działanie
+- Wydajna kompilacja
+- Łatwość użycia
+
+* Hello World!
+
+.play hello1.go
+
+* Prawdziwe Hello World!
+
+.play hello2.go
+
+* Wygląda znajomo?
+
+- Go nie ma ambicji być przełomowym językiem (To wada i zaleta jednocześnie)
+- Jest za to w miarę nowym językiem (To wada i zaleta jednocześnie)
+- C XXI wieku? = C + strings + garbage collection + concurrency
+
+* Przodkowie Go
+
+.image images/origins_of_go_graph.png 550 _
+
+* Dlaczego warto poznać Go
+- Prostota
+- Wydajne działanie i kompilacja
+- Łatwa współbieżność
+- Wbudowana obsługa standardów sieciowych (HTTP, JSON, XML, gRPC)
+- Gotowe narzędzia (budowanie, testowanie, formatowanie)
+- Pedantyczność kompilatora (nieużywane importy, zmienne) - wkurza przy uczeniu się, ale pomaga utrzymać porządek w dużym projekcie
+- Bezpieczne szablony HTML
+- Kompozycja zamiast dziedziczenia
+- Wieloplatformowość
+- Wieloparametrowe wyniki funkcji
+- Funkcje jako koncept pierwszej kategorii
+
+
+* Kontrowersyjne elementy
+- System zależności oparty o mono repo Google
+- Brak generyków
+- Obsługa błędów
+
+
+
+* Konkurencja
+
+.image images/languages_graph.png _ 850
+
+* Bezpieczne szablony - Strictly Contextually Auto-Escaping Template Engines
