@@ -6,10 +6,13 @@ Senior Software Developer, RnDity
 piotr.przybylak@rndity.com
 @PiotrPrzybylak
 
+
 * Agenda
 - 1 
 - 2
 - 3
+
+.background images/lama_wallpaper.png
 
 
 * Skąd wzięło się Go
@@ -23,9 +26,13 @@ Jego autorami byli:
 
 Wersja 1.0 została wydana w 2012 roku
 
+.background images/clean_wallpaper.png
+
 * Dlaczego powstało Go
 
 Autorzy twierdzą, że wymyślili język Go czekając aż skompiluje się kod serwera nad którym pracowali ;)
+
+.background images/clean_wallpaper.png
 
 Google posiada:
 
@@ -41,19 +48,27 @@ Istniejące narzędzia nie były budowane z myślą o rozproszonych systemach wi
 - Za wolno sie kompilują
 - Są za trudne i zbyt skomplikowane
 
+.background images/clean_wallpaper.png
+
 * Założenia projektu Go
 
 - Wydajne działanie
 - Wydajna kompilacja
 - Łatwość użycia
 
+.background images/clean_wallpaper.png
+
 * Hello World!
 
 .play hello1.go
 
+.background images/slide_wallpaper.png
+
 * Prawdziwe Hello World!
 
 .play hello2.go
+
+.background images/clean_wallpaper.png
 
 * Wygląda znajomo?
 
@@ -61,9 +76,14 @@ Istniejące narzędzia nie były budowane z myślą o rozproszonych systemach wi
 - Jest za to w miarę nowym językiem (To wada i zaleta jednocześnie)
 - C XXI wieku? = C + strings + garbage collection + concurrency
 
+.background images/clean_wallpaper.png
+
 * Przodkowie Go
 
 .image images/origins_of_go_graph.png 550 _
+
+.background images/clean_wallpaper.png
+
 
 * Dlaczego warto poznać Go
 - Prostota
@@ -78,6 +98,7 @@ Istniejące narzędzia nie były budowane z myślą o rozproszonych systemach wi
 - Wieloparametrowe wyniki funkcji
 - Funkcje jako koncept pierwszej kategorii
 
+.background images/clean_wallpaper.png
 
 * Kontrowersyjne elementy
 - System zależności oparty o mono repo Google
@@ -85,10 +106,19 @@ Istniejące narzędzia nie były budowane z myślą o rozproszonych systemach wi
 - Obsługa błędów
 - Wbudowany serwer HTTP ale brak typu Set
 
+.background images/clean_wallpaper.png
+
 * GOPATH
+
+.background images/clean_wallpaper.png
 
 * Konkurencja
 
 .image images/languages_graph.png _ 850
 
+.background images/clean_wallpaper.png
+
 * Bezpieczne szablony - Strictly Contextually Auto-Escaping Template Engines
+
+.background images/clean_wallpaper.png
+
