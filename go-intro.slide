@@ -83,8 +83,9 @@ Istniejące narzędzia nie były budowane z myślą o rozproszonych systemach wi
 - System zależności oparty o mono repo Google
 - Brak generyków
 - Obsługa błędów
+- Wbudowany serwer HTTP ale brak typu Set
 
-
+* GOPATH
 
 * Konkurencja
 
