@@ -24,6 +24,11 @@ Jego autorami byli:
 - Rob Pike
 - Ken Thompson
 
+Później dołączyli:
+
+- Russ Cox
+- Ian Lance Taylor
+
 Wersja 1.0 została wydana w 2012 roku
 
 .background images/clean_wallpaper.png
@@ -80,7 +85,9 @@ Istniejące narzędzia nie były budowane z myślą o rozproszonych systemach wi
 
 * Przodkowie Go
 
-.image images/origins_of_go_graph.png 550 _
+.image images/origins_of_go_graph.png 510 _
+
+Źródło: The Go Programming Language (Alan Donovan,‎ Brian Kernighan)
 
 .background images/clean_wallpaper.png
 
@@ -91,12 +98,13 @@ Istniejące narzędzia nie były budowane z myślą o rozproszonych systemach wi
 - Łatwa współbieżność
 - Wbudowana obsługa standardów sieciowych (HTTP, JSON, XML, gRPC)
 - Gotowe narzędzia (budowanie, testowanie, formatowanie)
-- Pedantyczność kompilatora (nieużywane importy, zmienne) - wkurza przy uczeniu się, ale pomaga utrzymać porządek w dużym projekcie
+- Pedantyczność kompilatora (nieużywane importy, zmienne)
 - Bezpieczne szablony HTML
 - Kompozycja zamiast dziedziczenia
 - Wieloplatformowość
 - Wieloparametrowe wyniki funkcji
 - Funkcje jako koncept pierwszej kategorii
+- Wspieranie wielu platform
 
 .background images/clean_wallpaper.png
 
@@ -108,10 +116,6 @@ Istniejące narzędzia nie były budowane z myślą o rozproszonych systemach wi
 
 .background images/clean_wallpaper.png
 
-* GOPATH
-
-.background images/clean_wallpaper.png
-
 * Konkurencja
 
 .image images/languages_graph.png _ 850
@@ -119,7 +123,27 @@ Istniejące narzędzia nie były budowane z myślą o rozproszonych systemach wi
 
 .background images/clean_wallpaper.png
 
+* Zależności i pakiety
+
+* GOPATH
+
+.background images/clean_wallpaper.png
+
+* Obsługa błędów
+
+ if err != nil {
+    return err
+ }
+
+* Obsługa błędów - bez wyjątków jednak ani rusz
+
+- Funckcja panic()
+
 * Bezpieczne szablony - Strictly Contextually Auto-Escaping Template Engines
+
+.background images/clean_wallpaper.png
+
+* Plany na Go 2
 
 .background images/clean_wallpaper.png
 
