@@ -5,15 +5,14 @@ Piotr Przybylak
 Senior Software Developer, RnDity
 piotr.przybylak@rndity.com
 @PiotrPrzybylak
-
+http://www.linkedin.com/in/piotrprzybylak
 
 * Agenda
-- 1 
-- 2
-- 3
+- Korzenie Go
+- Wybrane elementy języka
+- Wrażenia po roku z Go
 
 .background images/lama_wallpaper.png
-
 
 * Skąd wzięło się Go
 
@@ -31,13 +30,13 @@ Później dołączyli:
 
 Wersja 1.0 została wydana w 2012 roku
 
-.background images/clean_wallpaper.png
+.background images/clean_wallpaper.jpg
 
 * Dlaczego powstało Go
 
 Autorzy twierdzą, że wymyślili język Go czekając aż skompiluje się kod serwera nad którym pracowali ;)
 
-.background images/clean_wallpaper.png
+.background images/clean_wallpaper.jpg
 
 Google posiada:
 
@@ -53,7 +52,7 @@ Istniejące narzędzia nie były budowane z myślą o rozproszonych systemach wi
 - Za wolno sie kompilują
 - Są za trudne i zbyt skomplikowane
 
-.background images/clean_wallpaper.png
+.background images/clean_wallpaper.jpg
 
 * Założenia projektu Go
 
@@ -61,27 +60,42 @@ Istniejące narzędzia nie były budowane z myślą o rozproszonych systemach wi
 - Wydajna kompilacja
 - Łatwość użycia
 
-.background images/clean_wallpaper.png
+.background images/clean_wallpaper.jpg
 
 * Hello World!
 
 .play hello1.go
 
-.background images/slide_wallpaper.png
+.background images/slide_wallpaper.jpg
 
 * Prawdziwe Hello World!
 
 .play hello2.go
 
-.background images/clean_wallpaper.png
+.background images/clean_wallpaper.jpg
+
+* I jeszcze jeden przykład
+
+.play hello3.go
 
 * Wygląda znajomo?
 
-- Go nie ma ambicji być przełomowym językiem (To wada i zaleta jednocześnie)
-- Jest za to w miarę nowym językiem (To wada i zaleta jednocześnie)
+- Go nie ma ambicji być przełomowym językiem
+- Jest za to w miarę nowym językiem
 - C XXI wieku? = C + strings + garbage collection + concurrency
 
-.background images/clean_wallpaper.png
+Podobnie jak C Go jest:
+
+- Statycznie typowane
+- Proceduralne
+- Kompilowane
+- Oparte o wskaźniki
+
+.background images/clean_wallpaper.jpg
+
+* Go w Google
+
+.image images/go_w_google_zaznaczenie.png _ 970
 
 * Przodkowie Go
 
@@ -89,45 +103,61 @@ Istniejące narzędzia nie były budowane z myślą o rozproszonych systemach wi
 
 Źródło: The Go Programming Language (Alan Donovan,‎ Brian Kernighan)
 
-.background images/clean_wallpaper.png
+.background images/clean_wallpaper.jpg
 
 
 * Dlaczego warto poznać Go
-- Prostota
-- Wydajne działanie i kompilacja
-- Łatwa współbieżność
-- Wbudowana obsługa standardów sieciowych (HTTP, JSON, XML, gRPC)
-- Gotowe narzędzia (budowanie, testowanie, formatowanie)
-- Pedantyczność kompilatora (nieużywane importy, zmienne)
-- Bezpieczne szablony HTML
-- Kompozycja zamiast dziedziczenia
-- Wieloplatformowość
-- Wieloparametrowe wyniki funkcji
-- Funkcje jako koncept pierwszej kategorii
-- Wspieranie wielu platform
+* Prostota
+* Wydajne działanie i kompilacja
+* Łatwa współbieżność
+* Wbudowana obsługa standardów sieciowych
+- HTTP
+- gRPC
+- JSON
+- XML
 
-.background images/clean_wallpaper.png
+.play server.go
+
+
+
+* Gotowe narzędzia (budowanie, testowanie, formatowanie)
+* Pedantyczność kompilatora (nieużywane importy, zmienne)
+* Jeden sposób formatowania kodu
+* Kompozycja zamiast dziedziczenia
+* Wieloplatformowość
+* Wieloparametrowe wyniki funkcji
+* Funkcje jako koncept pierwszej kategorii
+* Wspieranie wielu platform
+* Bezpieczne szablony HTML
+
+Strictly Contextually Auto-Escaping Template Engines - zabezpieczenie przed XSS
+
+.background images/clean_wallpaper.jpg
+
+* Go wspiera użycie IDE ale go nie wymaga
+
+- Goland / Vim w RnDity: 50 / 50
+
+.background images/clean_wallpaper.jpg
 
 * Kontrowersyjne elementy
-- System zależności oparty o mono repo Google
-- Brak generyków
-- Obsługa błędów
-- Wbudowany serwer HTTP ale brak typu Set
-
-.background images/clean_wallpaper.png
-
-* Konkurencja
-
-.image images/languages_graph.png _ 850
-Źródło: https://medium.com/@kevalpatel2106/why-should-you-learn-go-f607681fad65
-
-.background images/clean_wallpaper.png
-
-* Zależności i pakiety
 
 * GOPATH
+.image images/gopath.png
 
-.background images/clean_wallpaper.png
+Źródło: http://www.musingscafe.com/get-going-with-golang-workspace-gopath-install-and-vendoring-part-1/
+
+.background images/clean_wallpaper.jpg
+
+* Vendorowanie
+.image images/vendor.png 550 _
+
+.background images/clean_wallpaper.jpg
+
+* Zależności i pakiety
+- System zależności oparty o mono repo Google
+
+.background images/clean_wallpaper.jpg
 
 * Obsługa błędów
 
@@ -135,15 +165,59 @@ Istniejące narzędzia nie były budowane z myślą o rozproszonych systemach wi
     return err
  }
 
+.background images/clean_wallpaper.jpg
+
 * Obsługa błędów - bez wyjątków jednak ani rusz
 
 - Funckcja panic()
 
-* Bezpieczne szablony - Strictly Contextually Auto-Escaping Template Engines
+.background images/clean_wallpaper.jpg
 
-.background images/clean_wallpaper.png
+* Obiektowość bez dziedziczenia
 
-* Plany na Go 2
+* Metody
 
-.background images/clean_wallpaper.png
+.play methods.go
 
+* Interfejsy
+
+ type geometry interface {
+    area() float64
+    perim() float64
+ }
+
+* Structural type system
+
+.play interface_implementation.go
+
+.background images/clean_wallpaper.jpg
+
+* Kompozycja
+
+.play composition.go
+
+.background images/clean_wallpaper.jpg
+
+* Pusty interfejs
+
+.play empty_interface.go
+
+* Brak Generycznych Generyków
+
+ type Stack struct {
+        items     []interface{}
+        lastIndex int
+ }
+
+Generyczność jest zarezerwowana dla wbudowanych kolekcji
+
+ type IntStack struct {
+         items     []int{}
+         lastIndex int
+ }
+
+.background images/clean_wallpaper.jpg
+
+* Hermetyzacja poprzez nazwy
+
+* Jak Go sprawdza się w małych projektach
