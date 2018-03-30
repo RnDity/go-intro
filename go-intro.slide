@@ -1,21 +1,16 @@
 Go 
  Wprowadzenie do Go i praktyczny przegląd języka 
 
+Krzysztof Jaśkiewicz
 Piotr Przybylak
-Senior Software Developer, RnDity
-piotr.przybylak@rndity.com
-@PiotrPrzybylak
-http://www.linkedin.com/in/piotrprzybylak
 
 * Agenda
 - Korzenie Go
-- Wybrane elementy języka
-- Wrażenia po roku z Go
+- Przegląd elementów języka
 
 .background images/lama_wallpaper.png
 
 * Skąd wzięło się Go
-
 Język Go powstał w 2009 w Google.
 Jego autorami byli:
 
@@ -29,7 +24,6 @@ Później dołączyli:
 - Ian Lance Taylor
 
 Wersja 1.0 została wydana w 2012 roku
-
 .background images/clean_wallpaper.jpg
 
 * Dlaczego powstało Go
@@ -46,178 +40,261 @@ Google posiada:
 
 * Problemy Google
 
-Istniejące narzędzia nie były budowane z myślą o rozproszonych systemach wielkiej skali
+Istniejące narzędzia nie były budowane z myślą dużych, rozproszonych systemach
 
-- Za wolno działają
-- Za wolno sie kompilują
-- Są za trudne i zbyt skomplikowane
-
-.background images/clean_wallpaper.jpg
-
-* Założenia projektu Go
-
-- Wydajne działanie
-- Wydajna kompilacja
-- Łatwość użycia
+- za wolno działają
+- za wolno sie kompilują
+- zbyt skomplikowane
 
 .background images/clean_wallpaper.jpg
 
-* Hello World!
-
-.play hello1.go
-
-.background images/slide_wallpaper.jpg
-
-* Prawdziwe Hello World!
-
-.play hello2.go
-
-.background images/clean_wallpaper.jpg
-
-* I jeszcze jeden przykład
-
-.play hello3.go
-
-* Wygląda znajomo?
-
-- Go nie ma ambicji być przełomowym językiem
-- Jest za to w miarę nowym językiem
-- C XXI wieku? = C + strings + garbage collection + concurrency
-
-Podobnie jak C Go jest:
-
-- Statycznie typowane
-- Proceduralne
-- Kompilowane
-- Oparte o wskaźniki
-
-.background images/clean_wallpaper.jpg
-
-* Go w Google
+* Problemy Google c.d.
 
 .image images/go_w_google_zaznaczenie.png _ 970
 
-* Przodkowie Go
+* Założenia projektu Go
+"What is the purpose of the project?"
+"We believe it's worth trying again with a new language, a concurrent, garbage-collected language with fast compilation."
 
-.image images/origins_of_go_graph.png 510 _
-
-Źródło: The Go Programming Language (Alan Donovan,‎ Brian Kernighan)
+- wydajne działanie
+- wydajna kompilacja
+- łatwość użycia
+- kod kompilowany do natywnej binarki
+- garbage collection
+- concurrency
 
 .background images/clean_wallpaper.jpg
 
 
-* Dlaczego warto poznać Go
-* Prostota
-* Wydajne działanie i kompilacja
-* Łatwa współbieżność
+* Hello World!
+.play hello2.go
+.background images/slide_wallpaper.jpg
+
+* Elementy Go
+.background images/clean_wallpaper.jpg
+
+* pakiety, importy
+- każdy program Go składa się z pakietów
+- żeby użyć publicznych elementów innego pakietu trzeba pakiet zaimportować
+- elementy publiczne to te pisane wielką literą !!!
+.play -edit example.go
+.background images/clean_wallpaper.jpg
+
+* Zmienne podstawowe:
+- bool
+- string
+- int  int8  int16  int32  int64
+- uint uint8 uint16 uint32 uint64 uintptr
+- byte // alias for uint8
+- rune // alias for int32, represents a Unicode code point
+- float32 float64
+- complex64 complex128
+.background images/clean_wallpaper.jpg
+
+* Zmienne podstawowe c.d.:
+Zero values
+Variables declared without an explicit initial value are given their zero value.
+
+The zero value is:
+
+0 for numeric types,
+false for the boolean type, and
+"" (the empty string) for strings.
+.play zero.go
+
+* Pętla
+    sum := 0
+    for i := 0; i < 10; i++ {
+        sum += i
+    }
+`do/while` expressed as `for` loops.
+
+`while(1)`
+
+  for {
+  	// loop forever
+  }
+
+`while(condition)`
+
+  flag := false
+  for !flag {
+  	if flag {
+    	flag = false
+  	}
+  }
+
+* range
+.play range.go
+.background images/clean_wallpaper.jpg
+
+* if
+.play if.go
+.background images/clean_wallpaper.jpg
+
+* switch/case
+.play switch.go
+.background images/clean_wallpaper.jpg
+
+* defer
+.play defer.go
+A defer statement defers the execution of a function until the surrounding function returns.
+The deferred call's arguments are evaluated immediately, but the function call is not executed until the surrounding function returns.
+.background images/clean_wallpaper.jpg
+
+* Wskaźniki, ale bez arytmetyki
+.play pointers.go
+Unlike C, Go has no pointer arithmetic.
+.background images/clean_wallpaper.jpg
+
+* array, slice
+  var a [10]int // array of ten integers
+  b := make([]int, 0, 10)  // slice of 0 elements, 10 preallocated
+  z := make([]int, 10)     // slice of 10 elements
+  f := []int{1,2,3,4}
+  fmt.Println(f[0], foo[2], foo[2:])  // 1 3 {3 4}
+.background images/clean_wallpaper.jpg
+
+* Mapy
+  // map[string]int  - map of strings to ints
+  f := map[string]int{
+  	"foo": 1,
+  	"bar": 2,
+  }
+  fmt.Println(f["foo"], foo["bar"])  // 1 2
+.background images/clean_wallpaper.jpg
+
+* Funkcje
+.play -edit functions.go
+.background images/clean_wallpaper.jpg
+
+* Funkcje - wiele wartości zwracanych
+.play -edit multiple-results.go
+.background images/clean_wallpaper.jpg
+
+* Funkcje też są wartościami
+- funkcji można użyć jako argumentu funkcji
+- funkcji można użyć jako wartości zwracanej przez funkcję
+.play -edit function-values.go
+
+* Closures
+.play -edit function-closures.go
+.background images/clean_wallpaper.jpg
+
+* Struktury, metody i interfejsy - OOP w wydaniu Go
+.background images/clean_wallpaper.jpg
+
+* Struktury
+.play struct.go /START OMIT/,/END OMIT/
+
+: Structs can be embedded in other structs
+: Can hide and show stuct fields
+.background images/clean_wallpaper.jpg
+
+* Metody
+.play methods.go
+.background images/clean_wallpaper.jpg
+
+* Interfejsy
+.play fooer.go /START OMIT/,/END OMIT/
+
+: Interface implementations are implicit, that is the one who implements Fooer does not explicity mark that it does so
+: There's no `implements`, `extends` or similar
+.background images/clean_wallpaper.jpg
+
+* Obsługa błędów
+- Nie ma wyjątków; do obłsugi błędów wykorzystujemy wiele wartości zwracanych przez funkcje
+- Funkcje często zwracają error, wołając funkcję powinniśmy sprawdzić czy error != nil
+.play -edit error-handling.go
+.background images/clean_wallpaper.jpg
+
+* Łatwa współbieżność - goroutines
+.play goroutines.go
+.background images/clean_wallpaper.jpg
+
 * Wbudowana obsługa standardów sieciowych
 - HTTP
 - gRPC
 - JSON
 - XML
+.play -edit server.go
 
-.play server.go
+* Testy
+.code test/foo.go
+.code test/foo_test.go
 
-
-
-* Gotowe narzędzia (budowanie, testowanie, formatowanie)
-* Pedantyczność kompilatora (nieużywane importy, zmienne)
-* Jeden sposób formatowania kodu
-* Kompozycja zamiast dziedziczenia
-* Wieloplatformowość
-* Wieloparametrowe wyniki funkcji
-* Funkcje jako koncept pierwszej kategorii
-* Wspieranie wielu platform
-* Bezpieczne szablony HTML
-
-Strictly Contextually Auto-Escaping Template Engines - zabezpieczenie przed XSS
-
+* Testy c.d.
+  $ go test -race
+  $ go test -coverprofile coverage.out
+  $ go tool cover -func=coverage.out
+  $ go test  -bench .
 .background images/clean_wallpaper.jpg
 
-* Go wspiera użycie IDE ale go nie wymaga
-
-- Goland / Vim w RnDity: 50 / 50
-
+* Wygląda znajomo?
+- Go nie ma ambicji być przełomowym językiem
+- Jest za to w miarę nowym językiem
+- C XXI wieku? = C + garbage collection + concurrency
 .background images/clean_wallpaper.jpg
 
-* Kontrowersyjne elementy
+* Brak Generyków
+Repeat this often
 
-* GOPATH
-.image images/gopath.png
+  func FindString(list []string, str string) bool {
+  	for _, k := range list {
+  		if k == str {
+  			return true
+  		}
+  	}
+  	return false
+  }
 
-Źródło: http://www.musingscafe.com/get-going-with-golang-workspace-gopath-install-and-vendoring-part-1/
-
+  func FindInt(list []int, str int) bool {
+  	for _, k := range list {
+  		if k == str {
+  			return true
+  		}
+  	}
+  	return false
+  }
 .background images/clean_wallpaper.jpg
 
-* Vendorowanie
-.image images/vendor.png 550 _
+* Zarządzanie zależnościami
 
+- aktualnie nie ma żadnego oficjalnego, gotowego rozwiązania
+
+- zależności są trzymane w katalogu `vendor/` w projekcie
+
+- problem długo dyskutowany przez społeczność Go - [[https://blog.gopheracademy.com/advent-2016/saga-go-dependency-management/][The Saga of Go Dependency Management]]
+
+- dużo rozwiązań od community: govendor, glide, godep, glock, gvt
+- Google stara się rozwiązać ten problem: vgo
+- [[https://research.swtch.com/vgo-tour][https://research.swtch.com/vgo-tour]] spro jest już zrobione, ale na razie to tylko proposal
 .background images/clean_wallpaper.jpg
 
-* Zależności i pakiety
-- System zależności oparty o mono repo Google
+* Zarządzanie zależnościami c.d.
 
+  GOPATH=/home/user/gocode
+
+  /home/user/gocode/
+     src/
+        github.com/
+           bboozzoo/
+              foo/
+                 x.go    (go code in package github.com/bboozzoo/foo)
+                 vendor/ (vendored dependencies)
+                    golang.org/x/sys/unix/
+                    github.com/sirupsen/logrus/
+                    github.com/BurntSushi/toml/
 .background images/clean_wallpaper.jpg
 
-* Obsługa błędów
-
- if err != nil {
-    return err
- }
-
+* Podsumowanie - cechy Go
+- prostota
+- wydajne działanie i kompilacja
+- garbage collector
+- concurrency
+- wbudowana obsługa standardów sieciowych
+- gotowe narzędzia (budowanie, testowanie, formatowanie)
+- pedantyczność kompilatora (nieużywane importy, zmienne)
+- jeden sposób formatowania kodu
+- wspieranie wielu platform
 .background images/clean_wallpaper.jpg
-
-* Obsługa błędów - bez wyjątków jednak ani rusz
-
-- Funckcja panic()
-
-.background images/clean_wallpaper.jpg
-
-* Obiektowość bez dziedziczenia
-
-* Metody
-
-.play methods.go
-
-* Interfejsy
-
- type geometry interface {
-    area() float64
-    perim() float64
- }
-
-* Structural type system
-
-.play interface_implementation.go
-
-.background images/clean_wallpaper.jpg
-
-* Kompozycja
-
-.play composition.go
-
-.background images/clean_wallpaper.jpg
-
-* Pusty interfejs
-
-.play empty_interface.go
-
-* Brak Generycznych Generyków
-
- type Stack struct {
-        items     []interface{}
-        lastIndex int
- }
-
-Generyczność jest zarezerwowana dla wbudowanych kolekcji
-
- type IntStack struct {
-         items     []int{}
-         lastIndex int
- }
-
-.background images/clean_wallpaper.jpg
-
-* Hermetyzacja poprzez nazwy
-
-* Jak Go sprawdza się w małych projektach
